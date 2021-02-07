@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1(){
+            document.getElementsByTagName("h1")[0].innerHTML += "body onload | ";
+        };
+        function fun2(){
+            document.getElementsByTagName("h1")[0].innerHTML += "window.onload | ";
+        };
+        function fun3(){
+            document.getElementsByTagName("h1")[0].innerHTML += "window.addEventListener load | ";
+        };
+        function fun4(){
+            document.getElementsByTagName("h1")[0].innerHTML += "document.addEventListener DOMContentLoaded | "
+        };
+       //  window.onload = fun2; // this will be overwritten by body onload
+
+       window.addEventListener("load",fun3);
+        
+       document.addEventListener("DOMContentLoaded",fun4);
+
+        
+    </script>
+</head>
+<body onload = "fun1()">
+    <h1>1</h1>    
+</body>
+</html>

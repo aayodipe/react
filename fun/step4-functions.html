@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        function adder(num1, num2, num3){
+            let rnum1 = num1 || 0;
+            let rnum2 = num2 || 0;
+            let rnum3 = num3 || 0;
+            return rnum1+rnum2+rnum3;
+        };
+        console.log( adder(1,null,3) );
+
+        // DEFAULT PARAMETERS
+        // function adder(num1 = 0, num2 = 0, num3 = 0){
+        //     return num1+num2+num3;
+        // };
+        // console.log( adder(1,null,3) );
+
+        // function adder(){
+        //     let total = 0;
+        //     for(let i = 0 ; i < arguments.length; i++){
+        //         total+= arguments[i]
+        //     }
+        //     return total;
+        // };
+        // console.log( adder(1,2,3,4,5,6,7) );
+
+        // REST Arguments
+        // function adder(...nums){
+        //     let total = 0;
+        //     for(let i = 0 ; i < nums.length; i++){
+        //         total+= nums[i]
+        //     }
+        //     return total;
+        // };
+        // console.log( adder(1,2,3,4,5,6,7) );
+
+
+        function adder(...nums){
+            let total = 0;
+            for(let i = 0 ; i < nums.length; i++){
+                total+= nums[i]
+            }
+            return total;
+        };
+        let arr = [1,2,3,4,5,6,7];
+        // console.log( adder(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6]) );
+        // SPREAD OPERATOR
+        console.log( adder(...arr) );
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <script>
+        // let cart = {
+        //     getCostPrice : function(){
+        //         return 100;
+        //     },
+        //     getSellingPrice : function(){
+        //         let scope = this;
+        //         // console.log(this);
+        //         let addProfit = function(){
+        //             return scope.getCostPrice() * 0.2;
+        //         }
+        //         return addProfit() + this.getCostPrice();
+        //     }
+        // };
+        let cart = {
+            getCostPrice : function(){
+                return 100;
+            },
+            getSellingPrice : () => {
+                let addProfit = () =>   this.getCostPrice() * 0.2;
+                // return addProfit.call(this) + this.getCostPrice();
+                // return addProfit.apply(this) + this.getCostPrice();
+                // return addProfit.bind(this)() + this.getCostPrice();
+                 return addProfit() + this.getCostPrice();
+            }
+        };
+        console.log(cart.getCostPrice(), cart.getSellingPrice());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

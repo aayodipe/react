@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 80px;
+            margin: 3px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 24px;
+            background-color: blueviolet;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color : black;
+            float: left;
+        }
+        .container{
+            border: 2px solid gray;
+            width: 845px;
+            margin: auto;
+            height: 420px;
+            overflow: auto;
+        }
+    </style>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>  
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script>
+        // let element = React.createElement("div", { className: 'box' }, "Hello from React");
+        let element = React.createElement("div", {"className" : "container"}, 
+        [
+        React.createElement("div",{key : 'a', "className" : "box"},"I Am Box"),
+        React.createElement("div",{key : 'b', "className" : "box"},"I Am Box"),
+        React.createElement("div",{key : 'c', "className" : "box"},"I Am Box"),       
+        React.createElement("div",{key : 'd', "className" : "box"},"I Am Box"),
+        React.createElement("div",{key : 'e', "className" : "box"},"I Am Box"),
+        ]        
+        );
+
+        document.addEventListener("DOMContentLoaded", function(){
+            ReactDOM.render(element, document.getElementById("root"));
+        });
+
+    </script>
+</head>
+<body>
+   <div id="root"></div> 
+</body>
+</html>

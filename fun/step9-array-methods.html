@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var arr = [7,5,3,9,11,37,54,99,20];
+        // console.log(arr.sort());
+        // function sortCompareFunction(num1, num2){
+        //     // console.log(arguments.length);
+        //     if(num1 > num2){
+        //         return 1
+        //     }else if(num1 < num2){
+        //         return -1
+        //     }else{
+        //         return 0
+        //     }
+        // };
+        // console.log(arr.sort(sortCompareFunction));
+        
+        // var arr = [7,5,11,37,3,9,54,99,20];
+        // for(let i = 0; i< arr.length; i++){
+            //     console.log(arr[i]);
+            // }
+        // arr.forEach(function(val, idx, arr){
+        //     // console.log(arguments.length);
+        //     console.log(val);
+        // })
+        // arr.forEach((val, idx, arr) => {
+        //     // console.log(arguments.length);
+        //     console.log(val);
+        // })
+        
+        // var doubleArr = arr.map(function(val, idx, ar){
+        //     return val * 2
+        // });
+        // console.log(doubleArr);
+        // var moreThan10 = arr.filter( val => val > 10 );
+        // console.log(moreThan10);
+        var arr = [11,7,5,37,3,9,54,99,20];
+        // var allGreaterThan10 = arr.every(function(val, idx){
+        //     console.log(idx);
+        //     return val > 10
+        // })
+        // console.log(allGreaterThan10);
+
+        // var someGreaterThan10 = arr.some(function(val, idx){
+        //     console.log(idx);
+        //     return val > 10 
+        // })
+        // console.log(someGreaterThan10);
+        var total = arr.reduce(function(init, val, idx, arr){
+                console.log(val);
+                return init + val;
+        },0)
+        console.log(total);
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

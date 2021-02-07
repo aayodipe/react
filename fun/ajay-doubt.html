@@ -1,0 +1,42 @@
+<!-- Below code functions are executing on below order.
+
+1.  document.addEventListener
+2.  window.addEventListener
+3.  body onload
+
+But,  window.onload function is not executing. I debug the code as well. Could you please let me know why windows.onload event is not calling. 
+
+  -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <script>
+        function greeting1() {
+            // alert("Fuction call on window addEventListener");
+            console.log("Fuction call on window addEventListener");
+        }
+        function greeting2() {
+            // alert("Fuction call on DOMContentLoaded");
+            console.log("Fuction call on DOMContentLoaded");
+        }
+
+        function greeting3() {
+            //alert("Fuction call on window on load");
+            console.log("Fuction call on window on load");
+        }
+      window.addEventListener("load", greeting1);
+      document.addEventListener("DOMContentLoaded", greeting2);
+      // window.onload = greeting3;
+
+      function greeting4() {
+       // alert("Fuction call on Body onload ");
+        console.log("Fuction call on Body onload ");
+      }
+    </script>
+  </head>
+  <body onload="greeting4()"></body>
+  </html>

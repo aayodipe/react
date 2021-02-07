@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var heroes = [
+        {
+            title : "Batman",
+            power : 7,
+            firstname : "Bruce",
+            lastname : "Wayne",
+            city : "Gotham"
+        },
+        {
+            title : "Ironman",
+            power : 6,
+            firstname : "Tony",
+            lastname : "Stark",
+            city : "New York"
+        },
+        {
+            title : "Spiderman",
+            power : 5,
+            firstname : "Peter",
+            lastname : "Parker",
+            city : "New York"
+        },
+        {
+            title : "Superman",
+            power : 8,
+            firstname : "Clark",
+            lastname : "Kent",
+            city : "Metropolis"
+        }
+        ];
+        document.addEventListener("DOMContentLoaded", function(){
+            for(let i = 0; i < heroes.length ; i++){
+                // document.getElementsByClassName("box")[0].innerHTML += '<li> Title : '+heroes[i].title+' | Fullname : '+heroes[i].firstname+' '+heroes[i].lastname+' | City : '+heroes[i].city+' | Power : '+heroes[i].power+' </li>'
+                document.getElementsByClassName("box")[0].innerHTML += `
+                <li> 
+                    Title : ${ heroes[i].title } | 
+                    Fullname : ${ heroes[i].firstname +' '+ heroes[i].lastname }   | 
+                    City : ${ heroes[i].city } | 
+                    Power : ${ heroes[i].power } 
+                </li>
+                `;
+            }
+        })
+    </script>
+</head>
+<body>
+    <ul class="box"></ul>
+</body>
+</html>

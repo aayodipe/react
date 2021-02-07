@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let promise = new Promise( function( resolve, reject ){
+            setTimeout( function(){
+                if(false){
+                    resolve("Promise was Resolved");
+                }else{
+                    reject("Promise was Rejected");
+                }
+            }, 2000)
+        });
+        let message = "Default";
+        let messageUpperCase = "Default";
+        promise.then(function(res){
+            // console.log(res);
+            message = res;
+            render();
+            console.log("inside resolve");
+            return res
+        }).then(function(prevres){
+            messageUpperCase = prevres.toUpperCase();   
+            render();
+        }).catch(function(error){
+            console.log(error);
+            console.log("inside the catch");
+        });
+        function render(){
+            document.querySelectorAll("span")[0].innerHTML = message;
+            document.querySelectorAll("span")[1].innerHTML = messageUpperCase;
+        }
+        document.addEventListener("DOMContentLoaded", function(){
+            render();
+        })
+    </script>
+</head>
+<body>
+    <h1>Message : <span></span></h1>
+    <h1>Message Uppercase : <span></span></h1>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./classes/person.js"></script>
+    <script src="./classes/hero.js"></script> -->
+    <script type="module">
+      import { Hero } from "./classes/hero.js";
+
+      let hero1 = new Hero("Bruce", "Wayne", "Gotham");
+      let hero2 = new Hero("Peter", "Parker", "New York");
+      console.log( hero1.fullname === hero2.fullname );
+      console.log( hero1.firstname, hero1.lastname, hero1.secret, hero1.city );
+      console.log( hero2.firstname, hero2.lastname, hero2.secret, hero2.city );
+      hero1.secret = "save gotham";
+      console.log( hero1.secret );
+      console.log( hero1.city );
+    </script>
+</head>
+<body>
+    <h1>Using Modules Example</h1>
+</body>
+</html>

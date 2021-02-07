@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      function Hero(fname, lname){
+        var mission = "Save the world";// private
+        this.firstname = fname; // public
+        this.lastname = lname; // public
+      };
+      Hero.prototype.fullname = function(){
+            return this.firstname+" "+this.lastname;
+      };
+      let hero1 = new Hero("Bruce", "Wayne");
+      let hero2 = new Hero("Peter", "Parker");
+      // hero1.fullname = function(){
+      // }
+      console.log(hero1.firstname);// Bruce
+      console.log(hero1.fullname());// undefined
+      console.log(hero2.firstname);// Bruce
+      console.log(hero2.fullname());// undefined
+      console.log( hero1.fullname === hero2.fullname );
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 80px;
+            margin: 3px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color : black;
+            float: left;
+        }
+        .container{
+            border: 2px solid gray;
+            width: 845px;
+            margin: auto;
+            height: 420px;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        let container = '', count = 0 ;
+        // function addSibling(){
+        //     count++;
+        //     let r = Math.round( Math.random()*255 );
+        //     let g = Math.round( Math.random()*255 );
+        //     let b = Math.round( Math.random()*255 );
+        //     let a = Math.random();
+        //     let color = "rgba("+r+","+g+","+b+","+a+")";
+        //     container.innerHTML += "<div onclick='addSibling()' style='background-color:"+color+"' class='box'>"+count+"</div>";
+        // };
+        document.addEventListener("DOMContentLoaded", function(){
+            container = document.getElementsByClassName("container")[0];
+            container.addEventListener("click", removeBox);
+            function removeBox(evt){
+                // alert(evt.target.innerHTML);
+                if(evt.target.getAttribute("class") === "box"){
+                   // alert("you clicked a box");
+                   container.removeChild(evt.target);
+                }else{
+                    alert("you did not click a box ");
+                }
+            }
+            document.getElementsByTagName("button")[0].addEventListener("click", function(){
+               count++;
+               let r = Math.round( Math.random()*255 );
+               let g = Math.round( Math.random()*255 );
+               let b = Math.round( Math.random()*255 );
+               let a = Math.random();
+               let color = "rgba("+r+","+g+","+b+","+a+")";
+               // container.innerHTML += "<div onclick='addSibling()' style='background-color:"+color+"' class='box'>"+count+"</div>";
+               container.innerHTML += "<div style='background-color:"+color+"' class='box'>"+count+"</div>";
+
+            });
+            document.getElementsByTagName("button")[1].addEventListener("click", function(){
+                let lastbox = container.lastChild;
+                if(lastbox){
+                   count--;
+                   container.removeChild(lastbox);
+               }else{
+                   alert("nothing to remove")
+               }
+            });
+            document.getElementsByTagName("button")[2].addEventListener("click", function(){
+                let firstbox = container.firstChild;
+                if(firstbox){
+                   count--;
+                   container.removeChild(firstbox);
+               }else{
+                   alert("nothing to remove")
+               }
+            });
+            document.getElementsByTagName("button")[3].addEventListener("click", function(){
+                count = 0;
+                container.innerHTML = "";
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <button>Add Box</button>
+    <button>Remove Last Box</button>
+    <button>Remove First Box</button>
+    <button>Remove All </button>
+    <div class="container"></div>
+</body>
+</html>

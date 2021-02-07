@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let asyncCall1 = function(){
+            return new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    if(true){
+                        resolve("Promise was resolved by asyncCall1");
+                    }else{
+                        reject("Promise was rejected by asyncCall1");
+                    }
+                }, 2000)
+            })
+        }; 
+        let asyncCall2 = function(){
+            return new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    if(true){
+                        resolve("Promise was resolved by asyncCall2");
+                    }else{
+                        reject("Promise was rejected by asyncCall2");
+                    }
+                }, 2000)
+            })
+        }; 
+        let asyncCall3 = function(){
+            return new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    if(false){
+                        resolve("Promise was resolved by asyncCall3");
+                    }else{
+                        reject("Promise was rejected by asyncCall3");
+                    }
+                }, 2000)
+            })
+        }; 
+        // All expects all calls to resolve and will call catch when any one of them fails.
+        /*
+        Promise.all([asyncCall1(), asyncCall2(), asyncCall3()]).then(function(res){
+            console.log( 
+                "Response from async call1 "+res[0]+"\n", 
+                "Response from async call2 "+res[1]+"\n", 
+                "Response from async call3 "+res[2]+"\n");
+            }).catch(function(error){
+                console.log(error);
+            });
+        */
+        // Race will wait for the first response or reject
+        /*
+        Promise.race([asyncCall3(),asyncCall1(), asyncCall2()]).then(
+            function(res){
+                console.log(res)
+            }).catch(
+                function(error){
+                    console.log(error);
+                });
+        */
+       // Any will wait for the first response
+        Promise.any([asyncCall3(),asyncCall1(), asyncCall2()]).then(
+            function(res){
+            console.log(res)
+            }).catch(
+            function(error){
+                console.log(error);
+            });
+    </script>
+</head>
+<body>
+</body>
+</html>
